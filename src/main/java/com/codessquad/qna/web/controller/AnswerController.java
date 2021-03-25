@@ -23,8 +23,8 @@ public class AnswerController {
 
     @PostMapping
     public String createAnswer(@PathVariable long questionId, String contents, HttpSession session) {
-        User user = HttpSessionUtils.getSessionedUser(session).orElseThrow(NotLoginException::new);
-        answerService.postAnswer(user, questionId, contents);
+        User loginUser = HttpSessionUtils.getSessionedUser(session).orElseThrow(NotLoginException::new);
+        answerService.postAnswer(loginUser, questionId, contents);
         return String.format("redirect:/questions/%d", questionId);
     }
 

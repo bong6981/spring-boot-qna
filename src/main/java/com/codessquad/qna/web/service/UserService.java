@@ -53,7 +53,7 @@ public class UserService {
                 .orElseThrow(() -> new LoginFailException("입력하신 아이디에 해당하는 회원이 없습니다"));
     }
 
-    public boolean isUpdatable(long id, String testPassword, User loginUser, User user) {
+    public boolean checkAndUpdate(long id, String testPassword, User loginUser, User user) {
         checkSameUser(id, loginUser);
         if(!isMatchingPassword(loginUser, testPassword)) {
             return false;

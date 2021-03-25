@@ -50,8 +50,7 @@ public class QuestionController {
     @GetMapping("/{id}/form")
     public String getUpdateForm(@PathVariable long id, HttpSession session, Model model) {
         User user = HttpSessionUtils.getSessionedUser(session).orElseThrow(NotLoginException::new);
-        Question question = questionService.checkAndGetQuestion(id, user);
-        model.addAttribute("question", question);
+        model.addAttribute("question", questionService.checkAndGetQuestion(id, user));
         return "/qna/updateForm";
     }
 

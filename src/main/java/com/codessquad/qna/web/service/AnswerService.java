@@ -1,6 +1,5 @@
 package com.codessquad.qna.web.service;
 
-import com.codessquad.qna.web.HttpSessionUtils;
 import com.codessquad.qna.web.domain.Answer;
 import com.codessquad.qna.web.domain.User;
 import com.codessquad.qna.web.exception.IllegalAccessException;

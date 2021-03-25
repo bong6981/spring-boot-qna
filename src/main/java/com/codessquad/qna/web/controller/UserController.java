@@ -70,7 +70,7 @@ public class UserController {
     @PutMapping("/{id}")
     public String updateUser(@PathVariable long id, String testPassword, User user, HttpSession session, Model model) {
         User loginUser = HttpSessionUtils.getSessionedUser(session).orElseThrow(NotLoginException::new);
-        if (!userService.isUpdatable(id, testPassword, loginUser, user)) {
+        if (!userService.checkAndUpdate(id, testPassword, loginUser, user)) {
             model.addAttribute("errorMessage", "비밀번호가 틀렸습니다");
             model.addAttribute("user", loginUser);
             return "/user/updateFormWithError";

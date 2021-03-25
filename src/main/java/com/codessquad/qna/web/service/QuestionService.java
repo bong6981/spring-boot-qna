@@ -38,8 +38,7 @@ public class QuestionService {
     }
 
     public void deleteQuestion(long id, User user) {
-        Question originQuestion = checkAndGetQuestion(id, user);
-        questionRepository.delete(originQuestion);
+        questionRepository.delete(checkAndGetQuestion(id, user));
     }
 
     public Question checkAndGetQuestion(long id, User user) {
